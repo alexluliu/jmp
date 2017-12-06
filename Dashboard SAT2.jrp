@@ -1,0 +1,512 @@
+﻿Open( "C:\Program Files (x86)\SAS\JMPSW\13\Samples\Data\SATByYear.jmp" );
+JMP App(
+	Set Name( "Dashboard" ),
+	Set Description( "Two reports arranged horizontally" ),
+	Auto Launch( 1 ),
+	Snap To Grid( 1 ),
+	Show Grid( 1 ),
+	Show Properties( 1 ),
+	Show Sources( 1 ),
+	Group By Category( 0 ),
+	Dashboard Mode( 1 ),
+	Parameters,
+	Tables(
+		DataTable1 = GuiTable(
+			Set Path( "$SAMPLE_DATA/SATByYear.jmp" ),
+			Set Label( "SATByYear" ),
+			Set Location( "Current Data Table" ),
+			Set Invisible( 0 )
+		)
+	),
+	Thumbnail(
+		New Image(
+			Char To Blob(
+				"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",
+				"base64compressed"
+			),
+			"png"
+		)
+	),
+	Script(JSL Quote(// This script is executed when the application is run.
+// Named objects have been created for the application modules
+// (for example, "Module1") and the pre-defined object
+// "thisApplication" refers to the application object itself.
+// Variables and functions declared here are scoped to the
+// Application namespace.
+
+)	),
+	Allocate(
+		Module1 = Plan(
+			PreAllocate,
+			Script(JSL Quote(				thisModuleInstance << Create Objects;				MainTabPage << Set Scriptable Object(thisApplication);			
+)			),
+			Allocate(
+				Splitter5 = V Splitter Box();
+				MainTabPage = Tab Page Box();
+				Splitter2 = V Splitter Box();
+				Splitter1 = H Splitter Box();
+				TabList1 = Tab Box();
+				TabPage3 = Tab Page Box();
+				Report3 = Platform(
+					DataTable1,
+					Bubble Plot(
+						X( :SAT Math ),
+						Y( :SAT Verbal ),
+						Sizes( :Name( "% Taking (2004)" ) ),
+						Time( :Year ),
+						ID( :Region, :State ),
+						Label( "All" ),
+						Title Position( 505.3, 553.333333333333 ),
+						Report View( "Summary" ),
+						SendToReport(
+							Dispatch(
+								{},
+								"1",
+								ScaleBox,
+								{Min( 490 ), Max( 580 ), Inc( 10 ), Minor Ticks( 0 )
+								}
+							),
+							Dispatch(
+								{},
+								"2",
+								ScaleBox,
+								{Min( 490 ), Max( 580 ), Inc( 10 ), Minor Ticks( 0 )
+								}
+							),
+							Dispatch(
+								{},
+								"Bubble Plot",
+								FrameBox,
+								{Frame Size( 502, 305 )}
+							)
+						)
+					)
+				);
+				TabPage2 = Tab Page Box();
+				Report2 = Platform(
+					DataTable1,
+					Bubble Plot(
+						X( :SAT Math ),
+						Y( :SAT Verbal ),
+						Sizes( :Name( "% Taking (2004)" ) ),
+						Time( :Year ),
+						ID( :State ),
+						Bubble Size( 10 ),
+						Label( "All" ),
+						Title Position( 479.75, 596 ),
+						Report View( "Summary" ),
+						SendToReport(
+							Dispatch(
+								{},
+								"1",
+								ScaleBox,
+								{Min( 450 ), Max( 625 ), Inc( 50 ), Minor Ticks( 1 )
+								}
+							),
+							Dispatch(
+								{},
+								"2",
+								ScaleBox,
+								{Min( 460 ), Max( 620 ), Inc( 20 ), Minor Ticks( 0 )
+								}
+							),
+							Dispatch(
+								{},
+								"Bubble Plot",
+								FrameBox,
+								{Frame Size( 502, 305 ),
+								DispatchSeg(
+									CustomStreamSeg( 1 ),
+									{Font( "Segoe UI", 8, "Plain" )}
+								)}
+							)
+						)
+					)
+				);
+				TabPage1 = Tab Page Box();
+				Report1 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 554, 452 ),
+						Show Control Panel( 0 ),
+						Variables(
+							Color( :Name( "Expenditure (1997)" ) ),
+							Shape( :State )
+						),
+						Elements( Map Shapes( Legend( 2 ) ) ),
+						Report View( "Summary" ),
+						SendToReport(
+							Dispatch(
+								{},
+								"",
+								ScaleBox,
+								{Min( -123.766686241174 ), Max( -71.2333137588265 ),
+								Inc( 10 ), Minor Ticks( 0 )}
+							),
+							Dispatch(
+								{},
+								"",
+								ScaleBox( 2 ),
+								{Min( 16.7210798497814 ), Max( 58.2789201502186 ),
+								Inc( 10 ), Minor Ticks( 1 )}
+							),
+							Dispatch(
+								{},
+								"400",
+								ScaleBox,
+								{Legend Model(
+									2,
+									Properties(
+										0,
+										{gradient(
+											{Color Theme( "White to Green" ),
+											Scale Values( [3.5 4.8 6.1 7.4 8.7 10] ),
+											Label Format( "Fixed Dec", 15, 0 )}
+										)}
+									)
+								)}
+							)
+						)
+					)
+				);
+				DataFilterContext2 = Data Filter Context Box();
+				MainTabPage2 = Tab Page Box();
+				Splitter4 = H Splitter Box();
+				DataFilterSource2 = Data Filter Source Box();
+				TabPage6 = Tab Page Box();
+				Report6 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 521, 441 ),
+						Show Control Panel( 0 ),
+						Variables( Color( :SAT Verbal ), Shape( :State ) ),
+						Elements( Map Shapes( Legend( 13 ) ) ),
+						Report View( "Summary" )
+					)
+				);
+				TabPage4 = Tab Page Box();
+				Report4 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 518, 441 ),
+						Show Control Panel( 0 ),
+						Variables(
+							X( :Year ),
+							Y( :SAT Verbal ),
+							Y( :SAT Math, Position( 1 ) )
+						),
+						Elements(
+							Line(
+								X,
+								Y( 1 ),
+								Y( 2 ),
+								Legend( 10 ),
+								Summary Statistic( "Median" )
+							)
+						),
+						Report View( "Summary" )
+					)
+				);
+			),
+			Organize(
+				Reparent( TabPage4( Report4 ) );
+				Reparent( Splitter4( TabPage4 ) );
+				Reparent( TabPage6( Report6 ) );
+				Reparent( DataFilterSource2( TabPage6 ) );
+				Reparent( Splitter4( DataFilterSource2 ) );
+				Reparent( MainTabPage2( Splitter4 ) );
+				Reparent( DataFilterContext2( MainTabPage2 ) );
+				Reparent( Splitter5( DataFilterContext2 ) );
+				Reparent( TabPage1( Report1 ) );
+				Reparent( Splitter1( TabPage1 ) );
+				Reparent( TabPage2( Report2 ) );
+				Reparent( TabList1( TabPage2 ) );
+				Reparent( TabPage3( Report3 ) );
+				Reparent( TabList1( TabPage3 ) );
+				Reparent( Splitter1( TabList1 ) );
+				Reparent( Splitter2( Splitter1 ) );
+				Reparent( MainTabPage( Splitter2 ) );
+				Reparent( Splitter5( MainTabPage ) );
+				Relocate( Splitter5( 0, 0 ) );
+			),
+			Initialize(
+				Splitter5 << Background Color( 2147483647 );
+				Splitter5 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter5 << Enabled( 1 );
+				Splitter5 << Horizontal Alignment( "Default" );
+				Splitter5 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter5 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter5 << Text Color( 2147483647 );
+				Splitter5 << Vertical Alignment( "Default" );
+				Splitter5 << Visibility( "Visible" );
+				Splitter5 << Dockable( 0 );
+				Splitter5 << Set Width( 814 );
+				Splitter5 << Set Height( 598 );
+				Splitter5 << Set Sizes( {0.505882352941176, 0.494117647058824} );
+				Splitter5 << set horizontal( 0 );
+				Splitter5 << Set Min Size( 814, 598 );
+				Splitter5 << Set Max Size( 30040, 60063 );
+				Splitter5 << Set Auto Stretching( 1, 1 );
+				MainTabPage << Background Color( 2147483647 );
+				MainTabPage << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Enabled( 1 );
+				MainTabPage << Horizontal Alignment( "Default" );
+				MainTabPage << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Text Color( 2147483647 );
+				MainTabPage << Vertical Alignment( "Default" );
+				MainTabPage << Visibility( "Visible" );
+				MainTabPage << Title( "Dashboard" );
+				MainTabPage << Tip( "" );
+				MainTabPage << Icon( "" );
+				MainTabPage << Closeable( 0 );
+				MainTabPage << Moveable( 0 );
+				Splitter2 << Background Color( 2147483647 );
+				Splitter2 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Enabled( 1 );
+				Splitter2 << Horizontal Alignment( "Default" );
+				Splitter2 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Text Color( 2147483647 );
+				Splitter2 << Vertical Alignment( "Default" );
+				Splitter2 << Visibility( "Visible" );
+				Splitter2 << Dockable( 0 );
+				Splitter2 << Set Width( 774 );
+				Splitter2 << Set Height( 240 );
+				Splitter2 << Set Sizes( {1} );
+				Splitter2 << set horizontal( 0 );
+				Splitter2 << Set Min Size( 774, 240 );
+				Splitter2 << Set Max Size( 60089, 30091 );
+				Splitter2 << Set Auto Stretching( 1, 1 );
+				Splitter1 << Background Color( 2147483647 );
+				Splitter1 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Enabled( 1 );
+				Splitter1 << Horizontal Alignment( "Default" );
+				Splitter1 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Text Color( 2147483647 );
+				Splitter1 << Vertical Alignment( "Default" );
+				Splitter1 << Visibility( "Visible" );
+				Splitter1 << Dockable( 1 );
+				Splitter1 << Set Width( 1263 );
+				Splitter1 << Set Height( 485 );
+				Splitter1 << Set Sizes( {0.50952380952381, 0.490476190476191} );
+				Splitter1 << set horizontal( 1 );
+				Splitter1 << Set Min Size( 754, 220 );
+				Splitter1 << Set Max Size( 60069, 30071 );
+				Splitter1 << Set Auto Stretching( 1, 1 );
+				TabList1 << Background Color( 2147483647 );
+				TabList1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabList1 << Enabled( 1 );
+				TabList1 << Horizontal Alignment( "Default" );
+				TabList1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabList1 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabList1 << Text Color( 2147483647 );
+				TabList1 << Vertical Alignment( "Default" );
+				TabList1 << Visibility( "Visible" );
+				TabList1 << Dockable( 1 );
+				TabList1 << Set Selected( 1 );
+				TabList1 << Set Style( "Tab" );
+				TabList1 << Set Overflow Enabled( 1 );
+				TabList1 << Set Tab Close( Empty() );
+				TabList1 << Set Tab Close Tip( "" );
+				TabList1 << Set Tab New( Empty() );
+				TabList1 << Set Tab New Tip( "" );
+				TabList1 << Set Tab New Icon( "" );
+				TabList1 << Show Tabs( 1 );
+				TabList1 << SetTabChanged( Empty() );
+				TabPage3 << Background Color( 2147483647 );
+				TabPage3 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage3 << Enabled( 1 );
+				TabPage3 << Horizontal Alignment( "Default" );
+				TabPage3 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage3 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage3 << Text Color( 2147483647 );
+				TabPage3 << Vertical Alignment( "Default" );
+				TabPage3 << Visibility( "Visible" );
+				TabPage3 << Title(
+					"Bubble Plot of SAT Verbal by SAT Math Sized by % Taking (2004) Across Year ID Region"
+				);
+				TabPage3 << Tip( "" );
+				TabPage3 << Icon( "BubblePlot" );
+				TabPage3 << Closeable( 1 );
+				TabPage3 << Moveable( 1 );
+				TabPage2 << Background Color( 2147483647 );
+				TabPage2 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage2 << Enabled( 1 );
+				TabPage2 << Horizontal Alignment( "Default" );
+				TabPage2 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage2 << Text Color( 2147483647 );
+				TabPage2 << Vertical Alignment( "Default" );
+				TabPage2 << Visibility( "Visible" );
+				TabPage2 << Title(
+					"Bubble Plot of SAT Verbal by SAT Math Sized by % Taking (2004) Across Year ID State"
+				);
+				TabPage2 << Tip( "" );
+				TabPage2 << Icon( "BubblePlot" );
+				TabPage2 << Closeable( 1 );
+				TabPage2 << Moveable( 1 );
+				TabPage1 << Background Color( 2147483647 );
+				TabPage1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage1 << Enabled( 1 );
+				TabPage1 << Horizontal Alignment( "Default" );
+				TabPage1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage1 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage1 << Text Color( 2147483647 );
+				TabPage1 << Vertical Alignment( "Default" );
+				TabPage1 << Visibility( "Visible" );
+				TabPage1 << Title( "Graph Builder" );
+				TabPage1 << Tip( "" );
+				TabPage1 << Icon( "Trellis" );
+				TabPage1 << Closeable( 1 );
+				TabPage1 << Moveable( 1 );
+				DataFilterContext2 << Background Color( 2147483647 );
+				DataFilterContext2 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				DataFilterContext2 << Enabled( 1 );
+				DataFilterContext2 << Horizontal Alignment( "Default" );
+				DataFilterContext2 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				DataFilterContext2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				DataFilterContext2 << Text Color( 2147483647 );
+				DataFilterContext2 << Vertical Alignment( "Default" );
+				DataFilterContext2 << Visibility( "Visible" );
+				MainTabPage2 << Background Color( 2147483647 );
+				MainTabPage2 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage2 << Enabled( 1 );
+				MainTabPage2 << Horizontal Alignment( "Default" );
+				MainTabPage2 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage2 << Text Color( 2147483647 );
+				MainTabPage2 << Vertical Alignment( "Default" );
+				MainTabPage2 << Visibility( "Visible" );
+				MainTabPage2 << Title( "Dashboard" );
+				MainTabPage2 << Tip( "" );
+				MainTabPage2 << Icon( "" );
+				MainTabPage2 << Closeable( 0 );
+				MainTabPage2 << Moveable( 0 );
+				Splitter4 << Background Color( 2147483647 );
+				Splitter4 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter4 << Enabled( 1 );
+				Splitter4 << Horizontal Alignment( "Default" );
+				Splitter4 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter4 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter4 << Text Color( 2147483647 );
+				Splitter4 << Vertical Alignment( "Default" );
+				Splitter4 << Visibility( "Visible" );
+				Splitter4 << Dockable( 1 );
+				Splitter4 << Set Width( 1313 );
+				Splitter4 << Set Height( 471 );
+				Splitter4 << Set Sizes( {0.471755725190839, 0.52824427480916} );
+				Splitter4 << set horizontal( 1 );
+				Splitter4 << Set Min Size( 361, 211 );
+				Splitter4 << Set Max Size( 60063, 30040 );
+				Splitter4 << Set Auto Stretching( 1, 1 );
+				DataFilterSource2 << Background Color( 2147483647 );
+				DataFilterSource2 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				DataFilterSource2 << Enabled( 1 );
+				DataFilterSource2 << Horizontal Alignment( "Default" );
+				DataFilterSource2 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				DataFilterSource2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				DataFilterSource2 << Text Color( 2147483647 );
+				DataFilterSource2 << Vertical Alignment( "Default" );
+				DataFilterSource2 << Visibility( "Visible" );
+				TabPage6 << Background Color( 2147483647 );
+				TabPage6 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage6 << Enabled( 1 );
+				TabPage6 << Horizontal Alignment( "Default" );
+				TabPage6 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage6 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage6 << Text Color( 2147483647 );
+				TabPage6 << Vertical Alignment( "Default" );
+				TabPage6 << Visibility( "Visible" );
+				TabPage6 << Title( "Graph Builder" );
+				TabPage6 << Tip( "" );
+				TabPage6 << Icon( "Trellis" );
+				TabPage6 << Closeable( 1 );
+				TabPage6 << Moveable( 1 );
+				TabPage4 << Background Color( 2147483647 );
+				TabPage4 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage4 << Enabled( 1 );
+				TabPage4 << Horizontal Alignment( "Default" );
+				TabPage4 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage4 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage4 << Text Color( 2147483647 );
+				TabPage4 << Vertical Alignment( "Default" );
+				TabPage4 << Visibility( "Visible" );
+				TabPage4 << Title( "Graph Builder" );
+				TabPage4 << Tip( "" );
+				TabPage4 << Icon( "Trellis" );
+				TabPage4 << Closeable( 1 );
+				TabPage4 << Moveable( 1 );
+			)
+		)
+	),
+	Initialize(
+		Module1 << Auto Launch( 1 );
+		Module1 << Set Module Type( "Report" );
+		Module1 << Set Window Title( "^TABLENAME - ^APPNAME" );
+		Module1 << Set Min Size( 0, 0 );
+		Module1 << Set Max Size( 30000, 30000 );
+		Module1 << Set Auto Stretching( ., . );
+	)
+) << Run;
